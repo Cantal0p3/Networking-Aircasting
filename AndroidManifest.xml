@@ -17,7 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     You can contact the authors by email at <info@habitatmap.org>
---><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="73" android:versionName="1.3.81" package="pl.llp.aircasting">
+--><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="103" android:versionName="1.3.81" package="pl.llp.aircasting">
 
   <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="8"/>
 
@@ -35,8 +35,10 @@
   <uses-permission android:name="android.permission.BLUETOOTH"/>
   <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
   <uses-permission android:name="android.permission.VIBRATE"/>
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
-  <application android:debuggable="false" android:icon="@drawable/icon" android:label="@string/app_name" android:name=".guice.AirCastingApplication">
+  <application android:debuggable="true" android:icon="@drawable/icon" android:label="@string/app_name" android:name=".guice.AirCastingApplication">
 
     <!-- Libraries -->
     <uses-library android:name="com.google.android.maps"/>
@@ -101,6 +103,10 @@
     <service android:name=".sync.SyncService"/>
 
     <service android:name=".service.IOIOService"/>
+    
+	<service android:name=".IOTExtension.ExtendedSensorService"/>
+	
+	<service android:name=".IOTExtension.KeepAliveService"/>
 
     <!-- Receivers -->
     <receiver android:name=".receiver.NetworkReceiver">

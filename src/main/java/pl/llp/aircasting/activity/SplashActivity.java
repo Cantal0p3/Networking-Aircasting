@@ -48,7 +48,7 @@ public class SplashActivity extends Activity {
                 // This may take some time
                 long startTime = System.currentTimeMillis();
                 Intents.startSensors(getApplication());
-
+                Intents.startKeepAliveService(getApplication());
                 long sleepTime = sleepTime(startTime);
                 sleep(sleepTime);
 
