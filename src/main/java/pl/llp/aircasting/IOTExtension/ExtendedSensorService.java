@@ -72,6 +72,7 @@ public class ExtendedSensorService extends RoboService implements IOTWrapper {
 	
 	@Inject EventBus eventBus;
 	@Inject SessionRepository sessionRepository;
+	@Inject SendDataToServerManager dataToServerManager;
 	
 	Gson gson;
 	Context context;
@@ -302,8 +303,8 @@ public class ExtendedSensorService extends RoboService implements IOTWrapper {
 	 */
 	
 	public void sendAllData(Date d1, Date d2){
-		// Query Session Repo
-		// And send over valid data between the times specified
+
+		dataToServerManager.sendAllData(d1, d2);
 	}
 	
 	// Same idea as sendAllData, but use some sort of 
@@ -331,7 +332,7 @@ public class ExtendedSensorService extends RoboService implements IOTWrapper {
 	}
 	
 	public void SendDatafromSpecificSensor (Date t1, Date t2, String sensor_name){
-		// put logic here
+		dataToServerManager.SendDatafromSpecificSensor(t1, t2, sensor_name);
 	}
 	
 	@Subscribe 
@@ -340,7 +341,7 @@ public class ExtendedSensorService extends RoboService implements IOTWrapper {
 	}
 	
 	public void sendSampledData(){
-		// put logic here
+		dataToServerManager.sendAllData();
 	}
 
 	// not so clear on this one
@@ -364,12 +365,6 @@ public class ExtendedSensorService extends RoboService implements IOTWrapper {
 			}
 		}
 		this.stopSelf(); */
-	}
-		
-	@Override
-	public void keepAlive() {
-		// TODO Auto-generated method stub
-		
 	}
 	
 }
