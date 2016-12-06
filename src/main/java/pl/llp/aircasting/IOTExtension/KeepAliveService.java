@@ -22,6 +22,7 @@ import android.os.IBinder;
 import android.telephony.TelephonyManager;
 import android.text.format.Formatter;
 import android.widget.Toast;
+import pl.llp.aircasting.Intents;
 import pl.llp.aircasting.helper.LocationHelper;
 import roboguice.service.RoboService;
 
@@ -83,7 +84,7 @@ public class KeepAliveService extends RoboService{
 			}
 		},5000);
 		
-		return START_STICKY;
+		return START_NOT_STICKY;
 	}
 	
 	private void sendKeepAliveData() {
@@ -138,6 +139,7 @@ public class KeepAliveService extends RoboService{
 	  {
 	    super.onDestroy();
 	    isServiceActive = false;
+	    Intents.stopKeepAliveService(context);
 	  }
 
 

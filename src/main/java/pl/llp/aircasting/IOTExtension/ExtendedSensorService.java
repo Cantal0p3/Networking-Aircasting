@@ -64,6 +64,13 @@ import com.google.gson.Gson;
 public class ExtendedSensorService extends RoboService implements IOTWrapper {
 	
 
+	@Override
+	public void keepAlive() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	/**
 	 * --------------------------------------------------------------------
 	 * 						BEGIN SERVICE VARS AND DATA

@@ -112,6 +112,7 @@ public class StreamsActivity extends ButtonsActivity {
         adapter.notifyDataSetChanged();
 
         startSensors(context);
+        //Intents.startKeepAliveService(context);
     }
 
     @Override
@@ -120,6 +121,7 @@ public class StreamsActivity extends ButtonsActivity {
 
         adapter.stop();
         stopSensors(context);
+        //Intents.stopKeepAliveService(context);
     }
 
     @Override
