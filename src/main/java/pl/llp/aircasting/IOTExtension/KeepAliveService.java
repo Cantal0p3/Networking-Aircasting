@@ -54,7 +54,6 @@ public class KeepAliveService extends RoboService{
 		// TODO Auto-generated method stub
 		super.onStartCommand(intent, flags, startId);
 		isServiceActive = true;
-		Toast.makeText(context, "Starting keepalive..", Toast.LENGTH_SHORT).show();
 		//sendKeepAliveData();
 		/*try {
 			Runnable runnable = new Runnable() {
@@ -88,7 +87,6 @@ public class KeepAliveService extends RoboService{
 	}
 	
 	private void sendKeepAliveData() {
-		Toast.makeText(context, "Inside sendKeepAliveData 1..", Toast.LENGTH_SHORT).show();
 		KeepAliveData keepAliveData = new KeepAliveData();
 		keepAliveData.setIMEI(getIMEI());
 		keepAliveData.setBatteryLife(getBatteryLife());
@@ -96,12 +94,8 @@ public class KeepAliveService extends RoboService{
 		keepAliveData.setKeepAliveStatus(getKeepAliveStatus());
 		keepAliveData.setLongitude(getLocation().getLongitude());
 		keepAliveData.setLatitude(getLocation().getLatitude());
-		Toast.makeText(context, "Inside sendKeepAliveData 2..", Toast.LENGTH_SHORT).show();
 		String keepAliveDataJson = gson.toJson(keepAliveData);
-		Toast.makeText(context, "Inside sendKeepAliveData 3..", Toast.LENGTH_SHORT).show();
-		Toast.makeText(context, "Sendind Data..", Toast.LENGTH_SHORT).show();
 		connManager.sendDataToServer(keepAliveDataJson);
-		Toast.makeText(context, "Data sent...", Toast.LENGTH_SHORT).show();
 	}
 	
 	private String getIMEI() {
